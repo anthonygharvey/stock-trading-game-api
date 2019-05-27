@@ -1,10 +1,23 @@
 class Stock < ApplicationRecord
 	require 'json'
 	serialize :prices, Array
+	before_validation :get_prices, if: :unique_symbol
 	validates :symbol, uniqueness: true
-	before_save :get_prices, if: :unique_symbol
+	validates :prices, length: {
+		minimum: 100,
+		message: "A stock must have at least 100 days of prices"
+	}
 
 	DOW = ['JNJ', 'DIS', 'MSFT', 'PG', 'PFE', 'IBM', 'INTC' 'MMM', 'MRK', 'WBA', 'CSCO', 'AAPL', 'XOM', 'UNH', 'KO', 'CAT', 'GS', 'NKE', 'MCD', 'TRV', 'V', 'CVX', 'UTX', 'VZ', 'WMT', 'HD', 'AXP', 'JPM', 'DOW', 'BA', 'DWDP'].freeze
+
+	def self.random_stock
+		Stock.find(pluck(:id).sample)
+	end
+
+	def random_dates
+		start = prices.index(prices[0...-100].sample)
+		prices[start...start+100]
+	end
 
 	private
 
