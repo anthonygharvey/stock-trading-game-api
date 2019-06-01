@@ -1,12 +1,12 @@
 class Api::PlayersController < ApplicationController
 	PORTFOLIO_PARAMS = %i(stock initial_balance cash shares share_value total_value)
+	TRADE_PARAMS = %i(date order_type stock_symbol shares stock_price commission)
 	def new
 		player = Player.new
 	end
 
 	def create
 		@player = Player.new(player_params)
-		build_portfolio
 		if @player.save
 			render json: {
 				"player": @player,
@@ -20,15 +20,9 @@ class Api::PlayersController < ApplicationController
 
 	private
 
-	def build_portfolio
-		@player.build_portfolio(portfolio_params)
-	end
-
 	def player_params
-		params.require(:player).permit(:user_name)
-	end
-
-	def portfolio_params
-		params.require(:portfolio).permit(PORTFOLIO_PARAMS)
+		params.require(:player).permit(:user_name,
+			portfolio_attributes: [PORTFOLIO_PARAMS,
+				trades_attributes: [TRADE_PARAMS]])
 	end
 end
