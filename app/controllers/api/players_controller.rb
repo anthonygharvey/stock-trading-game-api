@@ -1,6 +1,6 @@
 class Api::PlayersController < ApplicationController
-	PORTFOLIO_PARAMS = %i(stock initial_balance cash shares share_value total_value)
-	TRADE_PARAMS = %i(date order_type stock_symbol shares stock_price commission)
+	PORTFOLIO_PARAMS = %i(stock initial_balance cash shares share_value total_value).freeze
+	TRADE_PARAMS = %i(date order_type stock_symbol shares stock_price commission).freeze
 	def new
 		player = Player.new
 	end
