@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_28_024006) do
+ActiveRecord::Schema.define(version: 2019_06_01_233504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2019_05_28_024006) do
     t.integer "shares"
     t.float "share_value"
     t.float "total_value"
+    t.float "percentage_change"
     t.index ["player_id"], name: "index_portfolios_on_player_id"
   end
 
