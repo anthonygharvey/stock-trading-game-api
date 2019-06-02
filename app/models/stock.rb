@@ -8,7 +8,7 @@ class Stock < ApplicationRecord
 		message: "A stock must have at least 100 days of prices"
 	}
 
-	DOW = ['JNJ', 'DIS', 'MSFT', 'PG', 'PFE', 'IBM', 'INTC' 'MMM', 'MRK', 'WBA', 'CSCO', 'AAPL', 'XOM', 'UNH', 'KO', 'CAT', 'GS', 'NKE', 'MCD', 'TRV', 'V', 'CVX', 'UTX', 'VZ', 'WMT', 'HD', 'AXP', 'JPM', 'DOW', 'BA', 'DWDP'].freeze
+	DOW = ['JNJ', 'DIS', 'MSFT', 'PG', 'PFE', 'IBM', 'INTC', 'MMM', 'MRK', 'WBA', 'CSCO', 'AAPL', 'XOM', 'UNH', 'KO', 'CAT', 'GS', 'NKE', 'MCD', 'TRV', 'V', 'CVX', 'UTX', 'VZ', 'WMT', 'HD', 'AXP', 'JPM', 'DOW', 'BA', 'DWDP'].freeze
 
 	def self.random_stock
 		Stock.find(pluck(:id).sample)
@@ -38,8 +38,8 @@ class Stock < ApplicationRecord
 		end
 	end
 
-	def self.add_dow
-		DOW.each do |stock|
+	def self.add_stocks(stocks)
+		Array(stocks).each do |stock|
 			puts("ABOUT TO ADD: #{stock}")
 			sleep(10)
 			Stock.create(symbol: stock)
