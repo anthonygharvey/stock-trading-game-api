@@ -5,11 +5,9 @@
 
 # Read more: https://github.com/cyu/rack-cors
 
-Rails.app
-
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'https://anonymous-stock-client.herokuapp.com/'
+    origins ['localhost:3000', 'https://anonymous-stock.herokuapp.com/api/']
 
     resource '*',
       headers: :any,
