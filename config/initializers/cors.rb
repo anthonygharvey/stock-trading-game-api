@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'https://anonymous-stock-client.herokuapp.com/'
+    origins 'anonymous-stock-client.herokuapp.com'
 
     resource '*',
       headers: :any,
