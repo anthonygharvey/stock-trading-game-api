@@ -1,7 +1,9 @@
-##Description
-A Ruby on Rails API to for the Anonymous Stock Game, which is built with React and Redux.
+![forthebadge](https://forthebadge.com/images/badges/made-with-ruby.svg "Made With Ruby")
 
-The API saves historical stock prices from the Alpha Vantage API and exposes several endpoints to the React frontend: `random_stock`, `save_game` and `leaderboard`.  
+## Description
+A Ruby on Rails API to for the Anonymous Stock Game (<a href="https://github.com/anthonygharvey/stock-trading-game-client">repo</a>), which is built with React and Redux.
+
+The API saves historical stock prices from the <a href="https://www.alphavantage.co/documentation/" target="_blank">Alpha Vantage API</a> and exposes several endpoints to the React frontend: `random_stock`, `save_game` and `leaderboard`.  
 
 The `random_stock` endpoint returns a random stock and random 100 consecutive days of prices.
 
@@ -9,7 +11,7 @@ The `save_game` endpoint accepts `POST` requests from the React frontend to save
 
 The `leaderboard` endpoint returns a list of the top 10 players based on portfolio percentage gain.
 
-##Local Installation
+## Local Installation
 The API saves historical stock prices in order to avoid unnecessary requests to the Alpha Vantage API.
 
 To install and run the API on your local machine:
