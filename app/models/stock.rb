@@ -15,7 +15,7 @@ class Stock < ApplicationRecord
 	end
 
 	def random_dates
-		start = prices.index(prices[0...-100].sample)
+		start = prices.index(prices[0..-100].sample)
 		prices[start...start+100]
 	end
 
