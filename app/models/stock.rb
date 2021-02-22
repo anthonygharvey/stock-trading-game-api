@@ -8,8 +8,6 @@ class Stock < ApplicationRecord
     message: 'A stock must have at least 100 days of prices'
   }
 
-  DOW = %w[JNJ DIS MSFT PG PFE IBM INTC MMM MRK WBA CSCO AAPL XOM UNH KO CAT GS NKE MCD TRV V CVX UTX VZ WMT HD AXP JPM DOW BA DWDP].freeze
-
   def self.random_stock
     Stock.find(pluck(:id).sample)
   end
