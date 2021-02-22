@@ -37,15 +37,4 @@ class Stock < ApplicationRecord
       { date: k.to_date, price: v.values[4].to_f }
     end
   end
-
-  def self.add_historical_prices_for(stocks)
-    Array(stocks).each do |stock|
-      puts("ABOUT TO ADD: #{stock}")
-      sleep(10)
-      Stock.create(symbol: stock)
-      puts("JUST ADDED: #{stock}")
-    end
-  end
-
-  private_class_method :add_historical_prices_for
 end
